@@ -2,7 +2,6 @@
 
 #### This repository contains the documentation and proposal for the LFX Mentorship 2025 Term 3 [Kyverno](https://github.com/kyverno/kyverno/issues/13709), focusing on converting the Kyverno sample policies to use new CEL based policy types.
 
-- **Host OS:** macOS Sequoia 15.6
 - **Applied:** To convert sample policies into CEL based policy type.
 
 ## 📚Table of Contents
@@ -14,8 +13,8 @@
 ### 2. Testing
 - [Testing of the New CEL Based Policy](#testing-of-the-new-cel-based-policy)
 
-### 3. Miscellanous
-- [Applicant Details](#1-applicant-details)
+### 3. Miscellaneous
+- [Mentee Details](#1-mentee-details)
 - [References](#2-references)
 
 ## 🌐Introduction
@@ -109,9 +108,9 @@ spec:
   evaluation:
     background:
       enabled: true
-      
+  matchConstraints:    
     resourceRules:
-    - apiGroups:
+     - apiGroups:
       - ""
       apiVersions:
       - v1
@@ -226,3 +225,45 @@ Now, apply it to the cluster
 ```bash
 kubectl apply -f ns-no-psa.yaml
 ```
+- 2. Policy Report
+Result:
+```bash
+NAMESPACE   NAME                         PASS   FAIL   WARN   ERROR   SKIP   AGE
+            cpol-add-psa-namespace-reporting  0      1      0      0       0      2m
+```
+
+#### Test 2: Verifying the Compliance Scenario
+This test ensures that a compliant `Namespace` passes the validation check.
+
+- 1. Create a compliant Namespace
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-with-psa
+  labels:
+    pod-security.kubernetes.io/enforce: baseline
+```
+Now, apply it to the cluster
+```bash
+kubectl apply -f ns-with-psa.yaml
+```
+- 2. Policy Report 
+Result:
+```bash
+NAME                              PASS   FAIL   WARN   ERROR   SKIP   AGE
+cpol-add-psa-namespace-reporting  1      1      0      0       0      5m
+```
+
+## Miscellaneous
+
+### 1. Mentee Details
+I have applied for the LFX Mentorship Project Convert Kyverno Sample Policies to Use New CEL-Based Policy Types on the portal.
+[Cover Letter](https://docs.google.com/document/d/1cfWFSIDHBBbBq5uegK0_8XO0ICAsex56rZLjfNtyGHE/edit?usp=drive_link)
+
+[Resume](https://drive.google.com/file/d/1h51Ld3suqT6zCPeOfnpqGP5qOxVCGKQF/view?usp=drive_link)
+
+### 2. References
+- https://kyverno.io/policies/
+- https://kubernetes.io/docs/concepts/overview/kubernetes-api/
+- https://docs.docker.com/desktop/features/kubernetes/
