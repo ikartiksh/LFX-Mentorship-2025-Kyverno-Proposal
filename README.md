@@ -258,7 +258,9 @@ cpol-add-psa-namespace-reporting  1      1      0      0       0      5m
 ## Miscellaneous
 
 ### 1. Mentee Details
-I have applied for the LFX Mentorship Project Convert Kyverno Sample Policies to Use New CEL-Based Policy Types on the portal.
+I have applied for the LFX Mentorship Project Convert Kyverno Sample Policies to New CEL-Based Policy Types on the portal.
+
+
 [Cover Letter](https://docs.google.com/document/d/1cfWFSIDHBBbBq5uegK0_8XO0ICAsex56rZLjfNtyGHE/edit?usp=drive_link)
 
 [Resume](https://drive.google.com/file/d/1h51Ld3suqT6zCPeOfnpqGP5qOxVCGKQF/view?usp=drive_link)
